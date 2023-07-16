@@ -34,3 +34,9 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+- task: KubernetesManifest@1
+  inputs:
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    strategy: 'canary'
+    percentage: '10'
